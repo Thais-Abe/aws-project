@@ -1,4 +1,4 @@
-package com.exemplo;
+package com.example;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -6,9 +6,6 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 public class FunctionOneLambda implements RequestHandler<Object, String> {
     @Override
     public String handleRequest(Object input, Context context) {
-        return {
-                "statusCode" 200,
-                "body": "Hellow Terraform"
-}
+        return "Hello Lambda";
     }
 }
