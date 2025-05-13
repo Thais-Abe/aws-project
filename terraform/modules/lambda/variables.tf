@@ -4,18 +4,6 @@ variable "dynamodb_table_arn" {
   default     = null
 }
 
-
-
-# variable "function_configs" {
-#   type = list(object({
-#     function_name    = string
-#     handler          = string
-#     filename         = string
-#     runtime          = string
-#     environment_vars = map(string)
-#   }))
-# }
-
 variable "function_configs" {
   type = map(object({
     function_name    = string
