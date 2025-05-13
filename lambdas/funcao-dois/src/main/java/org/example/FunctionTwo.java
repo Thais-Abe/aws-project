@@ -31,7 +31,7 @@ public class FunctionTwo implements RequestHandler<Map<String, String>, Map<Stri
 
         Table table = dynamoDB.getTable(tablename);
         Item item = new Item()
-                .withPrimaryKey("PK", date, "SK", itemId)
+                .withPrimaryKey("PK","LIST#" + date, "SK", "ITEM#"+ itemId)
                 .withString("name", name)
                 .withString("status", "todo");
 
