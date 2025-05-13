@@ -19,21 +19,6 @@ resource "aws_dynamodb_table" "todo_table" {
     Environment = "dev"
     Project     = "todo-list"
   }
-#
-#   output "dynamodb_table_name" {
-#     value = module.dynamodb.dynamodb_table_name
-#   }
-#
-# module "dynamodb" {
-#   source = "./modules/dynamodb"  # Caminho correto para o módulo DynamoDB
-# }
-#
-# output "dynamodb_table_name" {
-#   value = module.dynamodb.dynamodb_table_name
-# }
-#
-# output "dynamodb_table_arn" {
-#   value = module.dynamodb.dynamodb_table_arn
-# }
+
 
 }

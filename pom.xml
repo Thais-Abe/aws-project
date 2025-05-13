@@ -74,6 +74,7 @@
     <modules>
         <module>lambdas/funcao-um</module>
         <module>lambdas/funcao-dois</module>
+        <module>lambdas/funcao-tres</module>
     </modules>
 
     <properties>
