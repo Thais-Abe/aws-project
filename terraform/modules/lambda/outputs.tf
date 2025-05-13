@@ -1,5 +1,4 @@
-
-output "lambda_function_arn" {
-  description = "The ARN of the Lambda function"
-  value       = aws_lambda_function.hello_lambda.arn
+output "lambda_function_arns" {
+  value = [for lambda in aws_lambda_function.lambda_functions : lambda.arn]
 }
+
