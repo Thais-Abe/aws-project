@@ -15,6 +15,7 @@ resource "aws_dynamodb_table" "todo_table" {
     type = "S"
   }
 
+
   tags = {
     Environment = "dev"
     Project     = "todo-list"
