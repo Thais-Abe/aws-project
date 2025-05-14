@@ -17,6 +17,11 @@ variable "create_funcao_tres" {
   default = true
 }
 
+variable "create_funcao_quatro" {
+  type    = bool
+  default = true
+}
+
 locals {
   function_configs = merge(
     var.create_funcao_um ? {
@@ -49,7 +54,18 @@ locals {
           TABLE_NAME = "todo-table"
         }
       }
-    } : {}
+    } : {},
+              var.create_funcao_quatro ? {
+                "funcao-quatro" = {
+                  function_name    = "funcao-quatro"
+                  handler          = "org.example.FunctionFour::handleRequest"
+                  filename         = "${path.root}/../lambdas/funcao-quatro/target/funcao-quatro-1.0-SNAPSHOT.jar"
+                  runtime          = "java11"
+                  environment_vars = {
+                    TABLE_NAME = "todo-table"
+                  }
+                }
+              } : {}
   )
 }
 
@@ -72,37 +88,4 @@ module "dynamodb" {
   hash_key            = var.hash_key
   range_key           = var.range_key
 }
-
-# Cria uma lista com as funções desejadas
-# locals {
-#   funcao_um = var.create_funcao_um ? [{
-#     function_name    = "funcao-um"
-#     handler          = "com.example.FunctionOneLambda::handleRequest"
-#     filename         = "${path.module}/lambdas/funcao-um/target/funcao-um-1.0-SNAPSHOT.jar"
-#     runtime          = "java11"
-#     environment_vars = {}
-#   }] : []
-#
-#   funcao_dois = var.create_funcao_dois ? [{
-#     function_name    = "funcao-dois"
-#     handler          = "org.example.FunctionTwo::handleRequest"
-#     filename         = "${path.root}/../lambdas/funcao-dois/target/funcao-dois-1.0-SNAPSHOT.jar"
-#     runtime          = "java11"
-#     environment_vars = {
-#       TABLE_NAME = "MarketLists"
-#     }
-#   }] : []
-#
-#     funcao_tres = var.create_funcao_tres ? [{
-#       function_name    = "funcao-tres"
-#       handler          = "org.example.FunctionThree::handleRequest"
-#       filename         = "${path.root}/../lambdas/funcao-tres/target/funcao-tres-1.0-SNAPSHOT.jar"
-#       runtime          = "java11"
-#       environment_vars = {
-#         TABLE_NAME = "MarketLists"
-#       }
-#     }] : []
-#
-#   function_configs = concat(local.funcao_um, local.funcao_dois, local.funcao_tres)
-# }
 
