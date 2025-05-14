@@ -19,8 +19,8 @@ public class FunctionFour implements RequestHandler<Map<String, Object>, Map<Str
 
     @Override
     public Map<String, Object> handleRequest(Map<String, Object> input, Context context) {
-        String listPk = (String) input.get("listPk"); // data da lista
-        String itemId = (String) input.get("itemId"); // id do item
+        String listPk = (String) input.get("listPk");
+        String itemId = (String) input.get("itemId");
 
         if (listPk == null || itemId == null) {
             return response(false, "Missing required parameters: 'listPk' and/or 'itemId'");

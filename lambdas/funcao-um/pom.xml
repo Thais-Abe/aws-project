@@ -22,7 +22,6 @@
             <artifactId>aws-lambda-java-events</artifactId>
             <version>2.2.7</version>
         </dependency>
-        <!-- Adicione outras dependências específicas desta Lambda -->
     </dependencies>
 
 </project>

@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "sa-east-1" # ajuste conforme necessário
+  region = "sa-east-1"
 }
 
 variable "create_funcao_um" {
@@ -55,17 +55,17 @@ locals {
         }
       }
     } : {},
-              var.create_funcao_quatro ? {
-                "funcao-quatro" = {
-                  function_name    = "funcao-quatro"
-                  handler          = "org.example.FunctionFour::handleRequest"
-                  filename         = "${path.root}/../lambdas/funcao-quatro/target/funcao-quatro-1.0-SNAPSHOT.jar"
-                  runtime          = "java11"
-                  environment_vars = {
-                    TABLE_NAME = "todo-table"
-                  }
-                }
-              } : {}
+    var.create_funcao_quatro ? {
+       "funcao-quatro" = {
+         function_name    = "funcao-quatro"
+         handler          = "org.example.FunctionFour::handleRequest"
+         filename         = "${path.root}/../lambdas/funcao-quatro/target/funcao-quatro-1.0-SNAPSHOT.jar"
+         runtime          = "java11"
+         environment_vars = {
+         TABLE_NAME = "todo-table"
+         }
+      }
+    } : {}
   )
 }
 
@@ -88,4 +88,5 @@ module "dynamodb" {
   hash_key            = var.hash_key
   range_key           = var.range_key
 }
+
 
