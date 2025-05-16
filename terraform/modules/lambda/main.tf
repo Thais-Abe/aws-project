@@ -54,3 +54,14 @@ resource "aws_iam_role_policy_attachment" "lambda_logging" {
   role       = aws_iam_role.lambda_exec_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
+
+
+resource "aws_lambda_function" "lambda_add_items" {
+  function_name = "lambda_add_items"
+  role          = aws_iam_role.lambda_role.arn
+  handler       = "functioTwo.lambda_add_to_list"  # <nome_do_arquivo_python_sem_extensão>.<nome_da_função>
+  runtime       = "python3.8"  # Altere para a versão do Python que você está usando
+  filename      = "lambda_function.zip"
+
+  source_code_hash = filebase64sha256("lambda_function.zip")
+}
