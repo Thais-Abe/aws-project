@@ -2,3 +2,5 @@
 .idea/sonarlint/
 .target
 .idea
+.terraform.lock.hcl
+.gitignore
