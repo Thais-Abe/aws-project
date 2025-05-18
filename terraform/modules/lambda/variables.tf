@@ -19,3 +19,4 @@ variable "lambda_role_arn" {
   type        = string
   description = "ARN da role existente a ser usada pelas funções Lambda"
 }
+
