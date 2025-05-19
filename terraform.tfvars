@@ -31,5 +31,16 @@ function_configs = {
     }
     timeout     = 10
     memory_size = 250
-  }
+  },
+  lambda_hello = {
+    function_name = "lambda_hello"
+    handler       = "hello.lambda_hello"
+    runtime       = "python3.12"
+    filename      = "src/lambdas-python/lambda-hello/hello.zip"
+    environment_vars = {
+      TABLE_NAME = "bakery-bank"
+    }
+    timeout     = 10
+    memory_size = 250
+  },
 }
