@@ -13,6 +13,7 @@ resource "aws_lambda_function" "lambda_functions" {
   environment {
     variables = each.value.environment_vars
   }
+  
 
   timeout = each.value.timeout
   memory_size = each.value.memory_size

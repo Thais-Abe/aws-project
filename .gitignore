@@ -7,3 +7,7 @@
 *.zipterraform.tfstate
 terraform.tfstate.backup
 terraform.tfstate
+lambda_add_itens.zip
+lambda_delete_itens.zip
+lambda_update_itens.zip
+hello.zip
