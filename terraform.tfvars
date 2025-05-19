@@ -20,5 +20,16 @@ function_configs = {
     }
     timeout     = 10
     memory_size = 250
+  },
+  lambda_delete_itens = {
+    function_name = "lambda_delete_itens"
+    handler       = "delete_list_itens.lambda_delete_itens"
+    runtime       = "python3.12"
+    filename      = "src/lambdas-python/lambda-delete-list-itens/lambda_delete_itens.zip"
+    environment_vars = {
+      TABLE_NAME = "bakery-bank"
+    }
+    timeout     = 10
+    memory_size = 250
   }
 }
