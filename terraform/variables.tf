@@ -21,3 +21,17 @@ variable "range_key" {
   type        = string
   default     = "SK"
 }
+
+
+variable "function_configs" {
+  type = map(object({
+    function_name    = string
+    handler          = string
+    runtime          = string
+    filename         = string
+    environment_vars = map(string)
+    timeout          = number
+    memory_size      = number
+  }))
+  description = "Configuration for Lambda functions"
+}

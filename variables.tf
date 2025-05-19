@@ -25,7 +25,8 @@ variable "range_key" {
 variable "dynamodb_table_arn" {
   description = "ARN da tabela DynamoDB"
   type        = string
-  default     = "arn:aws:dynamodb:sa-east-1:936333283512:table/todo-table"
+  default     = "arn:aws:dynamodb:sa-east-1:936333283512:table/bakery-bank"
+
 }
 
 variable "lambda_role_arn" {
@@ -35,19 +36,14 @@ variable "lambda_role_arn" {
 }
 
 variable "function_configs" {
-  description = "Configurações das funções Lambda"
   type = map(object({
-    function_name = string
-    handler       = string
-    runtime       = string
-    filename      = string
+    function_name    = string
+    handler          = string
+    runtime          = string
+    filename         = string
+    environment_vars = map(string)
+    timeout          = number
+    memory_size      = number
   }))
-  default = {
-    minha_lambda = {
-      function_name = "minha-funcao-lambda"
-      handler       = "index.handler"
-      runtime       = "python3.12"
-      filename      = "lambda_add_itens.zip"
-    }
-  }
+  description = "Configuration for Lambda functions"
 }

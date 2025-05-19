@@ -19,5 +19,4 @@ variable "hash_key" {
 variable "range_key" {
   type        = string
   description = "Chave de intervalo da tabela"
-  default = null
 }
