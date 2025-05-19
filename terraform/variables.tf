@@ -1,7 +1,7 @@
 variable "dynamodb_table_name" {
   description = "Nome da tabela do DynamoDB"
   type        = string
-  default     = "todo-table"
+  default     = "supermarket"
 }
 
 variable "billing_mode" {
