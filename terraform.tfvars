@@ -5,7 +5,7 @@ function_configs = {
     runtime       = "python3.12"
     filename      = "src/lambdas-python/lambda-add-list-itens/lambda_add_itens.zip"
     environment_vars = {
-      TABLE_NAME = "supermarket"
+      TABLE_NAME = "bakery-bank"
     }
     timeout     = 10  # Tempo em segundos
     memory_size = 250 # Tamanho da memória em MB (outro exemplo)
@@ -16,7 +16,7 @@ function_configs = {
     runtime       = "python3.12"
     filename      = "src/lambdas-python/lambda-update-list-itens/lambda_update_itens.zip"
     environment_vars = {
-      TABLE_NAME = "supermarket"
+      TABLE_NAME = "bakery-bank"
     }
     timeout     = 10
     memory_size = 250

@@ -1,31 +1,31 @@
 variable "dynamodb_table_name" {
-  description = "Nome da tabela DynamoDB"
+  description = "Nome da tabela do DynamoDB"
   type        = string
-  default     = "supermarket"
+  default     = "bakery-bank"
 }
 
 variable "billing_mode" {
-  description = "Modo de cobrança do DynamoDB (PAY_PER_REQUEST ou PROVISIONED)"
+  description = "Modo de cobrança do DynamoDB"
   type        = string
   default     = "PAY_PER_REQUEST"
 }
 
 variable "hash_key" {
-  description = "Chave de partição da tabela DynamoDB"
+  description = "Chave de partição"
   type        = string
-  default     = "name"
+  default     = "PK"
 }
 
 variable "range_key" {
-  description = "Chave de ordenação da tabela DynamoDB"
+  description = "Chave de ordenação"
   type        = string
-  default     = "date"
+  default     = "SK"
 }
 
 variable "dynamodb_table_arn" {
   description = "ARN da tabela DynamoDB"
   type        = string
-  default     = "arn:aws:dynamodb:sa-east-1:936333283512:table/supermarket"
+  default     = "arn:aws:dynamodb:sa-east-1:936333283512:table/bakery-bank"
 
 }
 
