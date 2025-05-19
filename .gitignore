@@ -1,0 +1,9 @@
+.terraform
+.idea/sonarlint/
+.target
+.idea
+.terraform.lock.hcl
+.gitignore
+*.zipterraform.tfstate
+terraform.tfstate.backup
+terraform.tfstate
