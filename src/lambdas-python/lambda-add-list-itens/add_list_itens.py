@@ -4,7 +4,7 @@ import boto3
 from botocore.exceptions import ClientError
 
 dynamodb = boto3.resource('dynamodb')
-table_name = os.getenv('TABLE_NAME', 'bakery-bank')  # Fallback
+table_name = os.getenv('TABLE_NAME', 'supermarket')  # Fallback
 table = dynamodb.Table(table_name)
 
 def lambda_add_to_list(event, context):

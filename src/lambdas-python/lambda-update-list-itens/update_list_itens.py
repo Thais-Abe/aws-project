@@ -1,7 +1,14 @@
 import os
 import boto3
+import logging
 
-def lambda_handler(event, context):
+
+
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+def lambda_modify_itens(event, context):
     dynamodb = boto3.resource('dynamodb')
     table_name = os.environ.get('TABLE_NAME')
     table = dynamodb.Table(table_name)
@@ -78,7 +85,7 @@ def lambda_handler(event, context):
             return response(True, None, updated_item)
 
     except Exception as e:
-        context.logger.error(f"Error: {str(e)}")
+        logger.error(f"Error: {str(e)}")
         return response(False, f"Could not update item: {str(e)}", None)
 
 def response(success, error, item):
