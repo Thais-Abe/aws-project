@@ -22,7 +22,7 @@ lambda_configs = {
     function_name = "lambda_add_items"
     handler       = "add_list_itens.lambda_add_to_list"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-add-list-itens/lambda_add_itens.zip"
+    filename      = "src/lambdas-python/lambda-add-list-itens/add_itens.zip"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -33,7 +33,7 @@ lambda_configs = {
     function_name = "lambda_modify_itens"
     handler       = "update_list_itens.lambda_modify_itens"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-update-list-itens/lambda_update_itens.zip"
+    filename      = "src/lambdas-python/lambda-update-list-itens/update_itens.zip"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -44,7 +44,7 @@ lambda_configs = {
     function_name = "lambda_delete_itens"
     handler       = "delete_list_itens.lambda_delete_itens"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-delete-list-itens/lambda_delete_itens.zip"
+    filename      = "src/lambdas-python/lambda-delete-list-itens/delete_itens.zip"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }

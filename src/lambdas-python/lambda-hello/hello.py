@@ -1,2 +1,10 @@
+import json
+
 def lambda_hello(event, context):
-    return "Hello Lambda"
+    return {
+        "statusCode":200,
+        "body": json.dumps({'success': 'Hello, Terraform!'})
+    }
+
+
+

@@ -1,8 +1,7 @@
 import os
 import boto3
 import logging
-
-
+import json
 
 
 logger = logging.getLogger()
@@ -94,4 +93,8 @@ def response(success, error, item):
         response_data["error"] = error
     if item:
         response_data["item"] = item
-    return response_data
+    return json.dumps(response_data)
+
+
+
+json.dumps({'error': 'Missing required fields: date and name'})
