@@ -16,6 +16,7 @@ resource "aws_iam_role" "lambda_exec_role" {
 # Permissão para DynamoDB
 resource "aws_iam_role_policy" "lambda_dynamodb_policy" {
   name = "lambda-dynamodb-policy"
+  # role = aws_iam_role.lambda_exec_role.arn
   role = aws_iam_role.lambda_exec_role.id
 
   policy = jsonencode({

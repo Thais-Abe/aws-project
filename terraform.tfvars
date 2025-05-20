@@ -7,15 +7,6 @@ hash_key = "PK"
 range_key = "SK"
 
 dynamodb_table_arn = "arn:aws:dynamodb:sa-east-1:936333283512:table/bakery-bank"
-# dynamodb_table_arn = module.dynamodb.dynamodb_table_arn
-
-
-
-lambda_role_arn = "arn:aws:iam::936333283512:role/default-lambda-role"
-# lambda_role_arn = aws_iam_role.lambda_role.arn
-# lambda_role_arn = module.iam.lambda_role_arn
-
-
 
 lambda_configs = {
   lambda_add_items = {
