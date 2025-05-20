@@ -7,3 +7,8 @@
 *.zipterraform.tfstate
 terraform.tfstate.backup
 terraform.tfstate
+add_itens.zip
+delete_itens.zip
+update_itens.zip
+hello.zip
+*.zip

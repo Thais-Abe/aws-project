@@ -4,7 +4,7 @@ variable "dynamodb_table_arn" {
   default     = null
 }
 
-variable "function_configs" {
+variable "lambda_configs" {
   type = map(object({
     function_name    = string
     handler          = string

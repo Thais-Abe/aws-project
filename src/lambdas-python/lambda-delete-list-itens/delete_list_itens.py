@@ -1,6 +1,7 @@
 import os
 import boto3
 import logging
+import json
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -36,4 +37,7 @@ def response(success, error):
     result = {"success": success}
     if not success and error:
         result["error"] = error
-    return result
+    return {
+        'statusCode': 200 if success else 400,
+        'body': json.dumps(result)
+    }
