@@ -23,11 +23,6 @@ variable "dynamodb_table_arn" {
   type        = string
 }
 
-variable "lambda_role_arn" {
-  description = "ARN da IAM Role usada pela função Lambda"
-  type        = string
-}
-
 variable "lambda_configs" {
   type = map(object({
     function_name    = string

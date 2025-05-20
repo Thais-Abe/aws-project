@@ -12,7 +12,8 @@ module "dynamodb" {
 
 module "iam" {
   source             = "./terraform/modules/iam"
-  dynamodb_table_arn = var.dynamodb_table_arn
+  dynamodb_table_arn = module.dynamodb.dynamodb_table_arn
+ 
 }
 
 
@@ -20,6 +21,5 @@ module "lambda_functions" {
   source = "./terraform/modules/lambda"
 
   lambda_configs  = var.lambda_configs
-  # lambda_configs  = module.lambda.lambda_configs
   lambda_role_arn = module.iam.lambda_exec_role_arn
 }
