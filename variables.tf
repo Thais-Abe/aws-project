@@ -18,15 +18,10 @@ variable "range_key" {
   type        = string
 }
 
-variable "dynamodb_table_arn" {
-  description = "ARN da tabela DynamoDB"
-  type        = string
-}
-
-variable "lambda_role_arn" {
-  description = "ARN da IAM Role usada pela função Lambda"
-  type        = string
-}
+# variable "dynamodb_table_arn" {
+#   description = "ARN da tabela DynamoDB"
+#   type        = string
+# }
 
 variable "lambda_configs" {
   type = map(object({
@@ -34,6 +29,7 @@ variable "lambda_configs" {
     handler          = string
     runtime          = string
     filename         = string
+    source_path      = string
     environment_vars = map(string)
     timeout          = number
     memory_size      = number

@@ -6,23 +6,13 @@ hash_key = "PK"
 
 range_key = "SK"
 
-dynamodb_table_arn = "arn:aws:dynamodb:sa-east-1:936333283512:table/bakery-bank"
-# dynamodb_table_arn = module.dynamodb.dynamodb_table_arn
-
-
-
-lambda_role_arn = "arn:aws:iam::936333283512:role/default-lambda-role"
-# lambda_role_arn = aws_iam_role.lambda_role.arn
-# lambda_role_arn = module.iam.lambda_role_arn
-
-
-
 lambda_configs = {
   lambda_add_items = {
     function_name = "lambda_add_items"
     handler       = "add_list_itens.lambda_add_to_list"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-add-list-itens/add_itens.zip"
+    filename      = "src/lambdas-python/lambda-add-list-itens"
+    source_path   = "src/lambdas-python/lambda-add-list-itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -33,7 +23,8 @@ lambda_configs = {
     function_name = "lambda_modify_itens"
     handler       = "update_list_itens.lambda_modify_itens"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-update-list-itens/update_itens.zip"
+    filename      = "src/lambdas-python/lambda-update-list-itens"
+    source_path   = "src/lambdas-python/lambda-update-list-itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -44,7 +35,8 @@ lambda_configs = {
     function_name = "lambda_delete_itens"
     handler       = "delete_list_itens.lambda_delete_itens"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-delete-list-itens/delete_itens.zip"
+    filename      = "src/lambdas-python/lambda-delete-list-itens"
+    source_path   = "src/lambdas-python/lambda-update-list-itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -55,7 +47,8 @@ lambda_configs = {
     function_name = "lambda_hello"
     handler       = "hello.lambda_hello"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-hello/hello.zip"
+    filename      = "src/lambdas-python/lambda-hello"
+    source_path   = "src/lambdas-python/lambda-hello"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
