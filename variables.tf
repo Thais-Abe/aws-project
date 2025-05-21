@@ -36,3 +36,9 @@ variable "lambda_configs" {
   }))
   description = "Configuration for Lambda functions"
 }
+
+variable "user_pool_name" {  
+    description = "Nome do Cognito User Pool"
+    type        = string
+    default     = "api-user-pool"
+}

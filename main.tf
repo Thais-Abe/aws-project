@@ -13,13 +13,16 @@ module "dynamodb" {
 module "iam" {
   source             = "./terraform/modules/iam"
   dynamodb_table_arn = module.dynamodb.dynamodb_table_arn
- 
 }
-
 
 module "lambda_functions" {
   source = "./terraform/modules/lambda"
 
   lambda_configs  = var.lambda_configs
   lambda_role_arn = module.iam.lambda_exec_role_arn
+}
+
+module "cognito" {
+  source             = "./terraform/modules/cognito"
+  user_pool_name     = var.user_pool_name
 }
