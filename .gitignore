@@ -12,3 +12,4 @@ delete_itens.zip
 update_itens.zip
 hello.zip
 *.zip
+.venv/
