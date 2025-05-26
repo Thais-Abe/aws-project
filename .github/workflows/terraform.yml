@@ -27,8 +27,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
-          aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+          aws-access-key-id: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          aws-secret-access-key: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
           aws-region: sa-east-1
 
       - name: Terraform Format (Automatic)
@@ -40,10 +40,9 @@ jobs:
       - name: Terraform Init
         run: terraform init -backend-config="dev.config"
 
-      - name: Terraform Import 
+      - name: Terraform Import
         run: |
           terraform import module.iam.aws_iam_role.lambda_exec_role lambda_exec_role || true
-          terraform import module.cognito.aws_iam_policy.cognito_management arn:aws:iam::SEU_ID:policy/cognito-management-policy || true
           terraform import module.dynamodb.aws_dynamodb_table.bakery-bank bakery-bank || true
           terraform import module.dynamodb_lock.aws_dynamodb_table.terraform_locks terraform-locks || true
 
