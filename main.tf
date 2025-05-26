@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "sa-east-1"
-}
-
 module "dynamodb" {
   source              = "./terraform/modules/dynamodb"
   dynamodb_table_name = var.dynamodb_table_name
