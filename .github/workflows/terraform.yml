@@ -42,9 +42,12 @@ jobs:
 
       - name: Terraform Import 
         run: |
+       - name: Terraform Import 
+        run: |
           terraform import module.iam.aws_iam_role.lambda_exec_role lambda_exec_role || true
-          terraform import module.cognito.aws_iam_policy.cognito_management cognito-management-policy || true
-          terraform import module.dynamodb.aws_dynamodb_table.bakery-bank bakery-bank || true  
+          terraform import module.cognito.aws_iam_policy.cognito_management arn:aws:iam::SEU_ID:policy/cognito-management-policy || true
+          terraform import module.dynamodb.aws_dynamodb_table.bakery-bank bakery-bank || true
+          terraform import module.dynamodb_lock.aws_dynamodb_table.terraform_locks terraform-locks || true
 
       - name: Terraform Validate
         run: terraform validate
