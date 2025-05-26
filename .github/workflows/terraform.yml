@@ -1,5 +1,9 @@
 name: Terraform Workflow
-'on':
+
+on:
+  pull_request:
+    branches:
+      - dev
   push:
     branches:
       - dev
@@ -36,6 +40,12 @@ jobs:
       - name: Terraform Init
         run: terraform init -backend-config="dev.config"
 
+      - name: Terraform Import 
+        run: |
+          terraform import module.iam.aws_iam_role.lambda_exec_role lambda_exec_role || true
+          terraform import module.cognito.aws_iam_policy.cognito_management cognito-management-policy || true
+          terraform import module.dynamodb.aws_dynamodb_table.bakery-bank bakery-bank || true  
+
       - name: Terraform Validate
         run: terraform validate
 
@@ -45,4 +55,5 @@ jobs:
           terraform plan -var-file="./environments/dev/terraform.tfvars" -out="dev.plan"
 
       - name: Terraform Apply
-        run: terraform apply "dev.plan"
+        if: github.event_name == 'push'
+        run: terraform apply -auto-approve "dev.plan"
