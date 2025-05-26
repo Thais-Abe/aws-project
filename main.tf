@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "dynamodb" {
-  source = "./terraform/modules/dynamodb"
+  source              = "./terraform/modules/dynamodb"
   dynamodb_table_name = var.dynamodb_table_name
   billing_mode        = var.billing_mode
   hash_key            = var.hash_key
@@ -23,17 +23,17 @@ module "lambda_functions" {
 }
 
 module "cognito" {
-  source             = "./terraform/modules/cognito"
-  user_pool_name     = var.user_pool_name
+  source         = "./terraform/modules/cognito"
+  user_pool_name = var.user_pool_name
 }
 
 
 module "api_gateway" {
   source = "./terraform/modules/apigateway"
 
-  lambda_arn           = module.lambda_functions.lambda_arns["lambda_hello"]
-  lambda_name          = module.lambda_functions.lambda_names["lambda_hello"]
-  cognito_user_pool_id = module.cognito.user_pool_id
+  lambda_arn            = module.lambda_functions.lambda_arns["lambda_hello"]
+  lambda_name           = module.lambda_functions.lambda_names["lambda_hello"]
+  cognito_user_pool_id  = module.cognito.user_pool_id
   cognito_app_client_id = module.cognito.app_client_id
-  region               = "sa-east-1"
+  region                = "sa-east-1"
 }
