@@ -6,6 +6,12 @@ module "dynamodb" {
   range_key           = var.range_key
 }
 
+module "dynamodb_lock" {
+  source           = "./terraform/modules/dynamodb_lock"
+  lock_table_name  = "terraform-locks"
+  billing_mode     = var.billing_mode
+}
+
 module "iam" {
   source             = "./terraform/modules/iam"
   dynamodb_table_arn = module.dynamodb.dynamodb_table_arn

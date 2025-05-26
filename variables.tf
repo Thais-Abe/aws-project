@@ -18,11 +18,6 @@ variable "range_key" {
   type        = string
 }
 
-# variable "dynamodb_table_arn" {
-#   description = "ARN da tabela DynamoDB"
-#   type        = string
-# }
-
 variable "lambda_configs" {
   type = map(object({
     function_name    = string
