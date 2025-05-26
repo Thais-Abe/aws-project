@@ -7,9 +7,9 @@ module "dynamodb" {
 }
 
 module "dynamodb_lock" {
-  source           = "./terraform/modules/dynamodb_lock"
-  lock_table_name  = "terraform-locks"
-  billing_mode     = var.billing_mode
+  source          = "./terraform/modules/dynamodb_lock"
+  lock_table_name = "terraform-locks"
+  billing_mode    = var.billing_mode
 }
 
 module "iam" {
