@@ -8,20 +8,20 @@ resource "aws_apigatewayv2_api" "http_api" {
 # Integração da api com a lambda
 
 resource "aws_apigatewayv2_integration" "lambda_integration" {
-  api_id           = aws_apigatewayv2_api.http_api.id
-  integration_type = "AWS_PROXY"
-  integration_uri  = var.lambda_arn
-  integration_method = "POST"
+  api_id                 = aws_apigatewayv2_api.http_api.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = var.lambda_arn
+  integration_method     = "POST"
   payload_format_version = "2.0"
 }
 
 # Authorizer cognito
 
 resource "aws_apigatewayv2_authorizer" "cognito_auth" {
-  name                       = "CognitoAuthorizer"
-  api_id                     = aws_apigatewayv2_api.http_api.id
-  authorizer_type            = "JWT"
-  identity_sources           = ["$request.header.Authorization"]
+  name             = "CognitoAuthorizer"
+  api_id           = aws_apigatewayv2_api.http_api.id
+  authorizer_type  = "JWT"
+  identity_sources = ["$request.header.Authorization"]
   jwt_configuration {
     audience = [var.cognito_app_client_id]
     issuer   = "https://cognito-idp.${var.region}.amazonaws.com/${var.cognito_user_pool_id}"
@@ -34,8 +34,8 @@ resource "aws_apigatewayv2_route" "hello_route" {
   api_id    = aws_apigatewayv2_api.http_api.id
   route_key = "GET /hello"
 
-  target = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
-  authorizer_id = aws_apigatewayv2_authorizer.cognito_auth.id
+  target             = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
+  authorizer_id      = aws_apigatewayv2_authorizer.cognito_auth.id
   authorization_type = "JWT"
 }
 
