@@ -1,6 +1,5 @@
-name: "Terraform Workflow"
-
-on:
+name: Terraform Workflow
+'on':
   push:
     branches:
       - dev
@@ -24,30 +23,26 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
+          aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
           aws-region: sa-east-1
+
+      - name: Terraform Format (Automatic)
+        run: terraform fmt -recursive
 
       - name: Terraform Format Check
         run: terraform fmt -check
 
       - name: Terraform Init
-        run: |
-          cd terraform
-          terraform init -backend-config="dev.config"
+        run: terraform init -backend-config="dev.config"
 
       - name: Terraform Validate
-        run: |
-          cd terraform
-          terraform validate
+        run: terraform validate
 
       - name: Terraform Plan
         run: |
-          cd terraform
           terraform workspace select dev || terraform workspace new dev
           terraform plan -var-file="./environments/dev/terraform.tfvars" -out="dev.plan"
 
       - name: Terraform Apply
-        run: |
-          cd terraform
-          terraform apply "dev.plan"
+        run: terraform apply "dev.plan"
