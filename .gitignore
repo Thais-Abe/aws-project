@@ -13,3 +13,4 @@ update_itens.zip
 hello.zip
 *.zip
 .venv/
+__pycache__/
