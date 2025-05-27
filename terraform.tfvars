@@ -11,8 +11,8 @@ lambda_configs = {
     function_name = "lambda_add_items"
     handler       = "add_list_itens.lambda_add_to_list"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-add-list-itens"
-    source_path   = "src/lambdas-python/lambda-add-list-itens"
+    filename      = "src/lambdas_python/lambda-add-list-itens"
+    source_path   = "src/lambdas_python/lambda-add-list-itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -23,8 +23,8 @@ lambda_configs = {
     function_name = "lambda_modify_itens"
     handler       = "update_list_itens.lambda_modify_itens"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-update-list-itens"
-    source_path   = "src/lambdas-python/lambda-update-list-itens"
+    filename      = "src/lambdas_python/lambda-update-list-itens"
+    source_path   = "src/lambdas_python/lambda-update-list-itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -35,8 +35,8 @@ lambda_configs = {
     function_name = "lambda_delete_itens"
     handler       = "delete_list_itens.lambda_delete_itens"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-delete-list-itens"
-    source_path   = "src/lambdas-python/lambda-update-list-itens"
+    filename      = "src/lambdas_python/lambda-delete-list-itens"
+    source_path   = "src/lambdas_python/lambda-update-list-itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -47,8 +47,20 @@ lambda_configs = {
     function_name = "lambda_hello"
     handler       = "hello.lambda_hello"
     runtime       = "python3.12"
-    filename      = "src/lambdas-python/lambda-hello"
-    source_path   = "src/lambdas-python/lambda-hello"
+    filename      = "src/lambdas_python/lambda-hello"
+    source_path   = "src/lambdas_python/lambda-hello"
+    environment_vars = {
+      TABLE_NAME = "bakery-bank"
+    }
+    timeout     = 10
+    memory_size = 250
+  },
+  lambda_get_itens = {
+    function_name = "lambda_get_itens"
+    handler       = "get_list_itens.lambda_get_list_itens"
+    runtime       = "python3.12"
+    filename      = "src/lambdas_python/lambda_get_itens"
+    source_path   = "src/lambdas_python/lambda_get_itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
