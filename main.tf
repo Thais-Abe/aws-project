@@ -33,8 +33,21 @@ module "cognito" {
 module "api_gateway" {
   source = "./terraform/modules/apigateway"
 
-  lambda_arn            = module.lambda_functions.lambda_arns["lambda_hello"]
-  lambda_name           = module.lambda_functions.lambda_names["lambda_hello"]
+  routes = {
+    hello = {
+      lambda_arn  = module.lambda_functions.lambda_arns["lambda_hello"]
+      lambda_name = "lambda_hello"
+      path        = "/hello"
+      method      = "GET"
+    }
+    get_itens = {
+      lambda_arn  = module.lambda_functions.lambda_arns["lambda_get_itens"]
+      lambda_name = "lambda_get_itens"
+      path        = "/list-itens"
+      method      = "GET"
+    }
+  }
+
   cognito_user_pool_id  = module.cognito.user_pool_id
   cognito_app_client_id = module.cognito.app_client_id
   region                = "sa-east-1"
