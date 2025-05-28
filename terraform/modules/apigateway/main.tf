@@ -7,14 +7,13 @@ resource "aws_apigatewayv2_api" "http_api" {
 
 # Integração da api com a lambda
 
-resource "aws_apigatewayv2_route" "lambda_route" {
+resource "aws_apigatewayv2_integration" "lambda_integration" {
   for_each = var.routes
-  api_id    = aws_apigatewayv2_api.http_api.id
-  route_key = "${each.value.method} ${each.value.path}"
-
-  target = "integrations/${aws_apigatewayv2_integration.lambda_integration[each.key].id}"
-  authorizer_id = aws_apigatewayv2_authorizer.cognito_auth.id
-  authorization_type = "JWT"
+  api_id           = aws_apigatewayv2_api.http_api.id
+  integration_type = "AWS_PROXY"
+  integration_uri  = each.value.lambda_arn
+  integration_method = "POST"
+  payload_format_version = "2.0"
 }
 
 # Authorizer cognito
