@@ -35,15 +35,15 @@ module "api_gateway" {
 
   routes = {
     hello = {
-      lambda_arn  = module.lambda_functions.lambda_arns["lambda_hello"]
+      lambda_arn  = module.lambda_functions.lambda_arns["lambda-hello"]
       lambda_name = "lambda_hello"
-      path        = "/hello"
+      path        = "hello"
       method      = "GET"
     }
     get_itens = {
       lambda_arn  = module.lambda_functions.lambda_arns["lambda_get_itens"]
       lambda_name = "lambda_get_itens"
-      path        = "/list-itens"
+      path        = "list-itens"
       method      = "GET"
     }
   }
