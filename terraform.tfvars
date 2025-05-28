@@ -57,7 +57,7 @@ lambda_configs = {
   },
   lambda_get_itens = {
     function_name = "lambda_get_itens"
-    handler       = "get_list_itens.lambda_get_list_itens"
+    handler       = "get_itens.lambda_get_itens"
     runtime       = "python3.12"
     filename      = "src/lambdas_python/lambda_get_itens"
     source_path   = "src/lambdas_python/lambda_get_itens"
