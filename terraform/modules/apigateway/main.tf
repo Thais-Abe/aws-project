@@ -8,11 +8,11 @@ resource "aws_apigatewayv2_api" "http_api" {
 # Integração da api com a lambda
 
 resource "aws_apigatewayv2_integration" "lambda_integration" {
-  for_each = var.routes
-  api_id           = aws_apigatewayv2_api.http_api.id
-  integration_type = "AWS_PROXY"
-  integration_uri  = each.value.lambda_arn
-  integration_method = "POST"
+  for_each               = var.routes
+  api_id                 = aws_apigatewayv2_api.http_api.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = each.value.lambda_arn
+  integration_method     = "POST"
   payload_format_version = "2.0"
 }
 
@@ -30,11 +30,11 @@ resource "aws_apigatewayv2_authorizer" "cognito_auth" {
 }
 
 resource "aws_apigatewayv2_route" "lambda_route" {
-  for_each = var.routes
+  for_each  = var.routes
   api_id    = aws_apigatewayv2_api.http_api.id
-  route_key = "GET /hello"
+  route_key = "${each.value.method} ${each.value.path}"
 
-  target             = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
+  target             = "integrations/${aws_apigatewayv2_integration.lambda_integration[each.key].id}"
   authorizer_id      = aws_apigatewayv2_authorizer.cognito_auth.id
   authorization_type = "JWT"
 }
@@ -42,7 +42,7 @@ resource "aws_apigatewayv2_route" "lambda_route" {
 #Permissão para o api gateway invocar a lambda
 
 resource "aws_lambda_permission" "api_gateway_invoke" {
-  for_each = var.routes
+  for_each      = var.routes
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
   function_name = each.value.lambda_name
