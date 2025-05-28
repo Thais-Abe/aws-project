@@ -1,13 +1,3 @@
-variable "lambda_arn" {
-  description = "ARN da Lambda hello"
-  type        = string
-}
-
-variable "lambda_name" {
-  description = "Nome da Lambda hello"
-  type        = string
-}
-
 variable "cognito_user_pool_id" {
   description = "ID do Cognito User Pool"
   type        = string
@@ -21,4 +11,13 @@ variable "cognito_app_client_id" {
 variable "region" {
   description = "Região AWS"
   type        = string
+}
+
+variable "routes" {
+  type = map(object({
+    lambda_arn  = string
+    lambda_name = string
+    path        = string
+    method      = string
+  }))
 }
