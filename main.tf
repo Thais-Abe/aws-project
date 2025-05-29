@@ -54,7 +54,6 @@ module "api_gateway" {
     }
   }
 
-  cognito_user_pool_id  = module.cognito.user_pool_id
-  cognito_app_client_id = module.cognito.app_client_id
-  region                = "sa-east-1"
+  user_pool_arn = module.cognito.user_pool_arn
+  region        = "sa-east-1"
 }
