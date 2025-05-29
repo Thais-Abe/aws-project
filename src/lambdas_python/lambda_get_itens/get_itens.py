@@ -38,7 +38,6 @@ def lambda_get_itens(event, context):
         }
         
     except Exception as error:
-        print(f"Erro Lambda: {error}")
         return {
             'statusCode': 500,
             'headers': {'Content-Type': 'application/json'},
