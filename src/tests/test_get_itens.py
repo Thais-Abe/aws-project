@@ -11,10 +11,8 @@ def mock_event():
     return {
         'requestContext': {
             'authorizer': {
-                'jwt': {
-                    'claims': {
-                        'sub': '123'
-                    }
+                'claims': {
+                    'sub': '123'
                 }
             }
         }
