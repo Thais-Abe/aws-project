@@ -36,7 +36,7 @@ lambda_configs = {
     handler       = "delete_list_itens.lambda_delete_itens"
     runtime       = "python3.12"
     filename      = "src/lambdas_python/lambda-delete-list-itens"
-    source_path   = "src/lambdas_python/lambda-update-list-itens"
+    source_path   = "src/lambdas_python/lambda-delete-list-itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
