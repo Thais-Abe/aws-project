@@ -49,7 +49,7 @@ module "api_gateway" {
     update_itens = {
       lambda_arn  = module.lambda_functions.lambda_arns["lambda_modify_itens"]
       lambda_name = "lambda_modify_itens"
-      path        = "/list-itens"
+      path        = "/modify-itens"
       method      = "PUT"
     }
   }
