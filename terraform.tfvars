@@ -23,8 +23,8 @@ lambda_configs = {
     function_name = "lambda_modify_itens"
     handler       = "update_list_itens.lambda_modify_itens"
     runtime       = "python3.12"
-    filename      = "src/lambdas_python/lambda-update-list-itens"
-    source_path   = "src/lambdas_python/lambda-update-list-itens"
+    filename      = "src/lambdas_python/lambda_update_list_itens"
+    source_path   = "src/lambdas_python/lambda_update_list_itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
