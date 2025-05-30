@@ -45,12 +45,24 @@ module "api_gateway" {
       lambda_name = "lambda_get_itens"
       path        = "/list-itens"
       method      = "GET"
-    }
+    },
+    add_itens = {
+      lambda_arn  = module.lambda_functions.lambda_arns["lambda_add_to_list"]
+      lambda_name = "lambda_add_to_list"
+      path        = "/add-itens"
+      method      = "POST"
+    },
     update_itens = {
       lambda_arn  = module.lambda_functions.lambda_arns["lambda_modify_itens"]
       lambda_name = "lambda_modify_itens"
       path        = "/modify-itens"
       method      = "PUT"
+    },
+    delete_itens = {
+      lambda_arn  = module.lambda_functions.lambda_arns["lambda_delete_itens"]
+      lambda_name = "lambda_delete_itens"
+      path        = "/delete-itens"
+      method      = "DELETE"
     }
   }
 

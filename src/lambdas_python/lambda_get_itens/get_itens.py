@@ -12,7 +12,7 @@ def lambda_get_itens(event, context):
     try:
 
         # pega a data do query string (?date=YYYY-MM-DD)
-        params = event.get('queryStringParameters') or {}
+        params = event.get('parameter') or {}
         date = params.get('date')
 
         if not date:

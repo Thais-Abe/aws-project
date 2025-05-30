@@ -11,8 +11,8 @@ lambda_configs = {
     function_name = "lambda_add_items"
     handler       = "add_list_itens.lambda_add_to_list"
     runtime       = "python3.12"
-    filename      = "src/lambdas_python/lambda-add-list-itens"
-    source_path   = "src/lambdas_python/lambda-add-list-itens"
+    filename      = "src/lambdas_python/lambda_add_list_itens"
+    source_path   = "src/lambdas_python/lambda_add_list_itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -35,8 +35,8 @@ lambda_configs = {
     function_name = "lambda_delete_itens"
     handler       = "delete_list_itens.lambda_delete_itens"
     runtime       = "python3.12"
-    filename      = "src/lambdas_python/lambda-delete-list-itens"
-    source_path   = "src/lambdas_python/lambda-delete-list-itens"
+    filename      = "src/lambdas_python/lambda_delete_list_itens"
+    source_path   = "src/lambdas_python/lambda_delete_list_itens"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
@@ -47,8 +47,8 @@ lambda_configs = {
     function_name = "lambda_hello"
     handler       = "hello.lambda_hello"
     runtime       = "python3.12"
-    filename      = "src/lambdas_python/lambda-hello"
-    source_path   = "src/lambdas_python/lambda-hello"
+    filename      = "src/lambdas_python/lambda_hello"
+    source_path   = "src/lambdas_python/lambda_hello"
     environment_vars = {
       TABLE_NAME = "bakery-bank"
     }
