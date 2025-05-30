@@ -1,13 +1,3 @@
-variable "cognito_user_pool_id" {
-  description = "ID do Cognito User Pool"
-  type        = string
-}
-
-variable "cognito_app_client_id" {
-  description = "ID do App Client do Cognito"
-  type        = string
-}
-
 variable "region" {
   description = "Região AWS"
   type        = string
@@ -20,4 +10,9 @@ variable "routes" {
     path        = string
     method      = string
   }))
+}
+
+variable "user_pool_arn" {
+  description = "ARN of the Cognito User Pool to be used by the API Gateway authorizer"
+  type        = string
 }

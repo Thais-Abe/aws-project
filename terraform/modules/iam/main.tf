@@ -26,7 +26,9 @@ resource "aws_iam_role_policy" "lambda_dynamodb_policy" {
         "dynamodb:GetItem",
         "dynamodb:PutItem",
         "dynamodb:UpdateItem",
-        "dynamodb:DeleteItem"
+        "dynamodb:DeleteItem",
+        "dynamodb:Query",
+        "dynamodb:Scan"
       ],
       Effect   = "Allow",
       Resource = var.dynamodb_table_arn
